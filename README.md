@@ -4,18 +4,32 @@ A simple way to share highly secret information among up to eight people,
 without requiring use of a common password or complicated public key setup.
 
 Notes:
-    * This only works on Linux
-    * You must be able to `sudo(8)` to `root` to use this
+* This only works on Linux
+* You must be able to `sudo(8)` to `root` to use this
+
+# How it Works
+
+This project gives you an disk image which:
+* Is very securely encrypted, so that only those who have a password can access it
+* Can be accessed by up to eight different people using their own individual passwords (no password sharing required)
+* Allows for the erasing of an individual password if a member of the group leaves (without knowing it)
+* Is under GIT source control and can be easily and safely shared and distributed
+
+This is useful in an organization where for redundancy you want multiple people to be able to access certain files, but you don't want to use a single shared secret that might be hard to control, especially if people might leave the group at some point.
+
+The disk image is created via `cryptsetup(8)` and mounted via loopback mounts. You can store whatever files you want in it, just like a physical disk.
 
 # Initializing the secrets file
 
 To create a new secrets vault or reinitialize an existing one:
 
 ```
-	sudo ./initialize-secrets.sh
+	sudo ./initialize-secrets.sh SIZE
 ```
 
-Then update "Slot 0" in the list below with your name.
+where SIZE is the size of the image in megabytes. A size of at least 5 megabytes is recommended.
+
+You will be asked for an initial password. When you're done, update "Slot 0" in the list below with your name.
 
 # Reading/Updating Secrets
 
