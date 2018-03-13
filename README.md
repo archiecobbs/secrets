@@ -9,10 +9,11 @@ Notes:
 
 # How it Works
 
-This project gives you an disk image which:
+This project creates a disk image which:
+* Is stored in regular file
 * Is very securely encrypted, so that only those who have a password can access it
 * Can be accessed by up to eight different people using their own individual passwords (no password sharing required)
-* Allows for the erasing of an individual password if a member of the group leaves (without knowing it)
+* Allows for the erasing of an individual password if a member of the group leaves (without needing to know their password)
 * Is under GIT source control and can be easily and safely shared and distributed
 
 This is useful in an organization where for redundancy you want multiple people to be able to access certain files, but you don't want to use a single shared secret that might be hard to control, especially if people might leave the group at some point.
